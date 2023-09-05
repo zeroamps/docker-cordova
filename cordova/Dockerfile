@@ -1,8 +1,10 @@
-FROM beevelop/cordova:latest
+FROM beevelop/android-nodejs
 
-ENV ANDROID_HOME=/opt/android
-RUN while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;32.0.0"
-RUN while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;33.0.0"
-RUN while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;33.0.1"
-RUN while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;33.0.2"
-RUN while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;34.0.0"
+ENV CORDOVA_VERSION=12.0.0 \
+    ANDROID_HOME=/opt/android
+
+RUN while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;33.0.0" && \
+    while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;33.0.1" && \
+    while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;33.0.2" && \
+    npm i -g --unsafe-perm cordova@${CORDOVA_VERSION} && \
+    rm -rf /opt/android/licenses
