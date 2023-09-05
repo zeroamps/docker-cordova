@@ -1,4 +1,4 @@
-# A Docker file for Cordova
+# A Dockerfile for Cordova
 It creates a Docker image for Cordova 12 with Android SDK Build Tools: 33.0.0, 33.0.1, 33.0.2.
 
 ## How to download it
