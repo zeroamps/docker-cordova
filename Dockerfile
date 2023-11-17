@@ -22,3 +22,5 @@ RUN mkdir /root/.android && touch /root/.android/repositories.cfg && \
     while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;33.0.2" && \
     while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;33.0.1" && \
     while true; do echo 'y'; sleep 2; done | sdkmanager "build-tools;33.0.0"
+
+CMD ["bash"]
